@@ -1,0 +1,92 @@
+<script>
+function validate(form) {
+fail = validateFirstname(form.firstname.value)
+fail += validateLastname(form.lastname.value)
+fail += validateGender(form.gender.value)
+fail += validatePassword(form.password.value)
+fail += validateAddress(form.address.value)
+fail += validatePhonenumber(form.phonenumber.value)
+fail += validateDeligateid(form.deligateid.value)
+if (fail == "") return true
+else { alert(fail); return false }
+}
+</script>
+
+<script>
+function validateFirstname(field) {
+if (field == "") return "No First Name was entered.\n"
+return ""
+}
+function validateLastname(field) {
+if (field == "") return "No Last Name was entered.\n"
+return ""
+}
+function validateGender(field) {
+if (field == "") return "No Gender was entered.\n"
+return ""
+}
+function validatePassword(field) {
+if (field == "") return "No Password was entered.\n"
+else if (field.length < 6)
+return "Passwords must be at least 6 characters.\n"
+else if (!/[a-z]/.test(field) || ! /[A-Z]/.test(field) ||
+!/[0-9]/.test(field))
+return "Passwords require one each of a-z, A-Z and 0-9.\n"
+return ""
+}
+function validateAddress(field) {
+if (field == "") return "No Address was entered.\n"
+return ""
+}
+function validatePhonenumber(field) {
+if (field == "") return "No Phone Number was entered.\n"
+return ""
+}
+function validateDeligateid(field) {
+if (field == "") return "No Username was entered.\n"
+else if (field.length < 5)
+return "Usernames must be at least 5 characters.\n"
+else if (/[^a-zA-Z0-9_-]/.test(field))
+return "Only a-z, A-Z, 0-9, - and _ allowed in Usernames.\n"
+return ""
+}
+</script>
+
+
+ <h2>Resgistration </h2>
+          <form action="deligateReg.php" method="post" onSubmit="return validate(this)">
+            
+			<ol>
+              <li>First Name</li>
+              <li>
+                <input type="text" name="firstname" class="text" />
+              </li>
+              <li></li>
+              <li>Last Name</li>
+              <li>
+                <input type="password" name="lastname" class="text" />
+              </li>
+            </ol>
+            <ol>
+              <li>Gender</li>
+              <li>
+                <input type="text" name="gender" class="text" />
+              </li>
+              <li>Address</li>
+              <li>
+                <input type="text" name="address" class="text" />
+              </li>
+              <li>Phone Number</li>
+              <li>
+                <input type="text" name="phonenumber" class="text" />
+              </li>
+              <li>User Name</li>
+              <li>
+                <input type="text" name="deligateid" class="text" />
+              </li>
+              <li>Password</li>
+              <li>
+                <input type="text" name="password" class="text" />
+              </li>
+            </ol>
+			<input type="submit" value="Register">
